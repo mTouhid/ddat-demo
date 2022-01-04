@@ -32,7 +32,12 @@
       </div>
       <%= form_with(url: assessments_new_path, local: true, method: :get) do |f| %>
       <div class="modal-body">
-          <%= f.select(:role, @roles.collect{|role| [role.name, role.id]}.unshift(["Select one from this list", "0"]), {}, class: "form-select form-select-lg mb-3") %>
+        <%= f.label :role, "Which role are you submitting this assessment for?", class: "form-label" %>
+        <%= f.select(:role, @roles.collect{|role| [role.name, role.id]}.unshift(["Select one from this list", "0"]), {}, class: "form-select form-select-lg mb-3") %>
+        <div class="mb-3">
+          <%= f.label :assessor_email_address, class: "form-label" %>
+          <%= f.email_field :assessor_email_address, class: "form-control form-control-lg", placeholder: "firstname.lastname@justice.gov.uk" %>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

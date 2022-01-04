@@ -5,7 +5,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params.require(:user).permit(:firstname, :lastname, :job_title, :department, :email, :password))
-    if @user.password == params[:user][:password2]
+    if @user.valid? && @user.password != params[:user][:password2]
+      flash.now[:danger] = "Passwords do not match."
+      render 'new'
+    else
       if @user.save
         session[:user_id] = @user.id
         session[:expires_at] = Time.current + 30.minutes 
@@ -15,9 +18,6 @@ class UsersController < ApplicationController
         flash.now[:danger] = "Something went wrong. Please correct the marked fields below."
         render 'new'
       end
-    else
-      flash.now[:danger] = "Passwords do not match."
-      render 'new'
     end
   end
 end
