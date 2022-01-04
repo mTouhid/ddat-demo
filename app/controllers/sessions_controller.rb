@@ -10,13 +10,14 @@ class SessionsController < ApplicationController
       flash[:success] = "Sign in successful"
       redirect_to root_path
     else
-      flash.now[:error] = "There was a problem with your credentials. Please try again."
+      flash.now[:danger] = "There was a problem with your credentials. Please try again."
       render 'new'
     end
   end
 
   def destroy
     session[:user_id] = nil
+    flash[:success] = "Sign out successful"
     redirect_to root_path
   end
 end
