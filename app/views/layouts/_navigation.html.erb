@@ -9,6 +9,11 @@
         <li class="nav-item">
           <%= link_to "Home", root_path, class: "nav-link active" %>
         </li>
+        <% if logged_in? && current_user.is_admin? %>
+          <li class="nav-item">
+            <%= link_to "Manage users", users_path, class: "nav-link active" %>
+          </li>
+        <% end %>
       </ul>
       <ul class="navbar-nav">
         <% if logged_in? %>

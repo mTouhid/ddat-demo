@@ -1,0 +1,28 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Firstname</th>
+      <th scope="col">Lastname</th>
+      <th scope="col" class="col-4">Email</th>
+      <th scope="col">Admin?</th>
+      <th scope="col" class="col-2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |u| %>
+    <tr>
+      <th scope="row"><%= u.id %></th>
+      <td><%= u.firstname %></td>
+      <td><%= u.lastname %></td>
+      <td><%= u.email %></td>
+      <td><%= u.is_admin? %></td>
+      <td>
+      <%= link_to "View", user_path(u), class: "btn btn-outline-primary btn-sm" %>
+      <%= link_to "Edit", edit_user_path(u), class: "btn btn-outline-warning btn-sm" %>
+      <%= link_to "Delete", user_path(u), method: :delete, class: "btn btn-outline-danger btn-sm" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

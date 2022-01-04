@@ -27,8 +27,14 @@
     <%= f.label :password2, "Re-enter password", class: "form-label"%>
     <%= f.password_field :password2, validated_class(:password2) %>
   </div>
+  <% if logged_in? && current_user.is_admin? %>
+  <div class="col-md-12 form-check form-switch mt-4">
+    <%= f.check_box :is_admin, class: "form-check-input" %>
+    <%= f.label :is_admin, "Is this an admin?", class: "form-check-label" %>
+  </div>
+  <% end %>
   <div class="col-12 mt-5">
     <%= f.submit "Submit", class: "btn btn-success btn-lg col-4" %>
-    <%= link_to "Cancel", root_path, class: "btn btn-danger btn-lg col-2" %>
+    <%= link_to "Cancel", :back, class: "btn btn-danger btn-lg col-2" %>
   </div>
 <% end %>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'users/new'
   get 'home/index'
   get 'registration', to: 'users#new'
-  resources :users, only: [:create]
+  resources :users, except: [:new]
   get 'signin', to: 'sessions#new'
   post 'signin', to: 'sessions#create'
   resources :assessments, only: [:new]

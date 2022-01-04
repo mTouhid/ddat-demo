@@ -1,0 +1,17 @@
+<div class="row justify-content-md-center">
+  <div class="col-9">
+    <h1 class="display-1"><strong><%= @user.display_name %></strong></h1>
+    <span class="h2"><%= @user.job_title %></span>, <span class="h5"><%= @user.department %></span>
+    <div class="input-group flex-nowrap mt-5 pe-5">
+      <span class="input-group-text" id="addon-wrapping">@</span>
+      <input type="text" class="form-control form-control-lg me-5" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" value=<%= @user.email %> disabled readonly>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="d-grid gap-2 col-12 mx-auto mt-5 border border-2 border-dark rounded-3 p-4">
+      <%= link_to "Edit this user", edit_user_path(@user), class: "btn btn-outline-warning btn-lg" %>
+      <%= link_to "Delete this user", user_path(@user), method: :delete, class: "btn btn-outline-danger btn-lg" %>
+    </div>
+  </div>
+</div>
+</div>
