@@ -27,21 +27,21 @@
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Which role are you submitting this assessment for?</h5>
+        <h5 class="modal-title">Getting started</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <%= form_with(url: assessments_new_path, local: true, method: :get) do |f| %>
       <div class="modal-body">
         <%= f.label :role, "Which role are you submitting this assessment for?", class: "form-label" %>
-        <%= f.select(:role, @roles.collect{|role| [role.name, role.id]}.unshift(["Select one from this list", "0"]), {}, class: "form-select form-select-lg mb-3") %>
+        <%= f.select(:role, @roles.collect{|role| [role.name, role.id]}, {include_blank: "-- Select one from this list --"}, required: true, class: "form-select form-select-lg mb-3") %>
         <div class="mb-3">
           <%= f.label :assessor_email_address, class: "form-label" %>
-          <%= f.email_field :assessor_email_address, class: "form-control form-control-lg", placeholder: "firstname.lastname@justice.gov.uk" %>
+          <%= f.email_field :assessor_email_address, class: "form-control form-control-lg", required: true, placeholder: "firstname.lastname@justice.gov.uk" %>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <%= f.submit "Proceed", class: "btn btn-primary" %>
+        <button type="button" class="btn btn-danger btn-lg col-2" data-bs-dismiss="modal">Cancel</button>
+        <%= f.submit "Proceed", class: "btn btn-success btn-lg col-4" %>
       </div>
       <% end %>
     </div>

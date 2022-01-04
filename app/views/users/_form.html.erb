@@ -27,7 +27,8 @@
     <%= f.label :password2, "Re-enter password", class: "form-label"%>
     <%= f.password_field :password2, validated_class(:password2) %>
   </div>
-  <div class="col-12">
-    <%= f.submit "Submit", class: "btn btn-primary btn-lg" %>
+  <div class="col-12 mt-5">
+    <%= f.submit "Submit", class: "btn btn-success btn-lg col-4" %>
+    <%= link_to "Cancel", root_path, class: "btn btn-danger btn-lg col-2" %>
   </div>
 <% end %>
