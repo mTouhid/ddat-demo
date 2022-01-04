@@ -1,0 +1,33 @@
+<%= form_with(model: @user, local: true, class: "row g-3 m-4") do |f| %>
+  <div class="col-md-6">
+    <%= f.label :firstname, class: "form-label"%>
+    <%= f.text_field :firstname, validated_class(:firstname) %>
+  </div>
+  <div class="col-md-6">
+    <%= f.label :lastname, class: "form-label"%>
+    <%= f.text_field :lastname, validated_class(:firstname) %>
+  </div>
+  <div class="col-12">
+    <%= f.label :job_title, class: "form-label"%>
+    <%= f.text_field :job_title, validated_class(:job_title) %>
+  </div>
+  <div class="col-12">
+    <%= f.label :department, class: "form-label"%>
+    <%= f.text_field :department, validated_class(:department) %>
+  </div>
+  <div class="col-md-12">
+    <%= f.label :email, class: "form-label"%>
+    <%= f.email_field :email, validated_class(:email) %>
+  </div>
+  <div class="col-md-6">
+    <%= f.label :password, "Password", class: "form-label"%>
+    <%= f.password_field :password, validated_class(:password) %>
+  </div>
+  <div class="col-md-6">
+    <%= f.label :password2, "Re-enter password", class: "form-label"%>
+    <%= f.password_field :password2, validated_class(:password2) %>
+  </div>
+  <div class="col-12">
+    <%= f.submit "Submit", class: "btn btn-primary btn-lg" %>
+  </div>
+<% end %>
