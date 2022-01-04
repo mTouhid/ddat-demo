@@ -20,7 +20,7 @@ class User < ApplicationRecord
   private
 
   def make_email_downcase
-    self.email = email.downcase
+    self.email = email.strip.downcase
   end
 
 end

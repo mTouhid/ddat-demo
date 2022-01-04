@@ -5,12 +5,18 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params.require(:user).permit(:firstname, :lastname, :job_title, :department, :email, :password))
-    if @user.save
-      session[:user_id] = @user.id
-      flash[:success] = "COngratulations. Your registration has been successful."
-      redirect_to root_path
+    if @user.password == params[:user][:password2]
+      if @user.save
+        session[:user_id] = @user.id
+        session[:expires_at] = Time.current + 30.minutes 
+        flash[:success] = "Congratulations. Your registration has been successful."
+        redirect_to root_path
+      else
+        flash.now[:danger] = "Something went wrong. Please correct the marked fields below."
+        render 'new'
+      end
     else
-      flash.now[:danger] = "Something went wrong. Please correct the marked fields below."
+      flash.now[:danger] = "Passwords do not match."
       render 'new'
     end
   end
