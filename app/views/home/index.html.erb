@@ -3,10 +3,14 @@
     <div class="col-12 text-center mt-5 mb-5">
       <h1 class="display-1">Welcome, <%= current_user.display_name %></h1>
       <% if current_season %>
-      <h3>The <mark><strong><%= current_season.name %></strong></mark> DDaT Assessment window is now open.</h3>
-      <button type="button" class="btn btn-primary btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#roleModal">
-        Start your assessment
-      </button>
+        <h3>The <mark><strong><%= current_season.name %></strong></mark> DDaT Assessment window is now open.</h3>
+        <% if current_user.assessments.find_by(assessment_season: current_season).nil? %>
+          <button type="button" class="btn btn-primary btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#roleModal">
+            Start your assessment
+          </button>
+        <% else %>
+          <h3>Looks like you have submitted your assessment already.</h3>
+        <% end %>
       <% else %>
       <p>DDaT Assessment window is now closed. Please try again later.</p>
       <% end %>
