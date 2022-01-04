@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-AssessmentSeason.create(name: "2021", start_date: Date.today, end_date: Date.today+7)
+AssessmentSeason.create(name: "2022", start_date: Date.today, end_date: Date.today+7)
 
 User.create(firstname: "Touhidul",
   lastname: "Islam",
