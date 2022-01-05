@@ -1,0 +1,40 @@
+<div class="row justify-content-md-center">
+  <div class="col-12">
+    <h1 class="display-1">Assessment seasons</h1>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-12">
+  <% if @assessment_seasons.any? %>
+    <h5><%= pluralize(@assessment_seasons.count, "season") %> found.</h5>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col" class="col-2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @assessment_seasons.each do |a| %>
+        <tr>
+          <th scope="row"><%= a.id %></th>
+          <td><%= a.name %></td>
+          <td><%= a.start_date.strftime("%A, %e %B %Y at %I:%M:%S %p") %></td>
+          <td><%= a.end_date.minus_with_duration(1.second).strftime("%A, %e %B %Y at %I:%M:%S %p") %></td>
+          <td>
+          <%= link_to "View", assessment_season_path(a), class: "btn btn-outline-primary btn-sm" %>
+          <%= link_to "Edit", edit_assessment_season_path(a), class: "btn btn-outline-warning btn-sm" %>
+          <%= link_to "Delete", assessment_season_path(a), method: :delete, class: "btn btn-outline-danger btn-sm" %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% else %>
+      <h5>There are no seasons found.</h5>
+    <% end %>
+  </div>
+</div>

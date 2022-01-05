@@ -1,0 +1,2 @@
+module AssessmentSeasonsHelper
+end

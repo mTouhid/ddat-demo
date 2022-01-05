@@ -10,8 +10,14 @@
           <%= link_to "Home", root_path, nav_link_class(root_path) %>
         </li>
         <% if logged_in? && current_user.is_admin? %>
-          <li class="nav-item">
-            <%= link_to "Manage users", users_path, nav_link_class(users_path) %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Administration
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to "Manage users", users_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Manage assessment seasons", assessment_seasons_path, class: "dropdown-item" %></li>
+            </ul>
           </li>
         <% end %>
       </ul>

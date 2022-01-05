@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'assessment_seasons/index'
   get 'assessments/new'
   get 'sessions/new'
   get 'users/new'
@@ -7,7 +8,8 @@ Rails.application.routes.draw do
   resources :users, except: [:new]
   get 'signin', to: 'sessions#new'
   post 'signin', to: 'sessions#create'
-  resources :assessments, only: [:show, :new, :create, :edit, :update]
+  resources :assessments
+  resources :assessment_seasons
   delete 'sessions', to: 'sessions#destroy'
   root 'home#index'
 end
