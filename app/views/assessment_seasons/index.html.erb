@@ -1,6 +1,11 @@
 <div class="row justify-content-md-center">
-  <div class="col-12">
+  <div class="col-9">
     <h1 class="display-1">Assessment seasons</h1>
+  </div>
+  <div class="col-3">
+    <div class="d-grid gap-2 col-12 mx-auto mt-5 border border-2 border-dark rounded-3 p-4">
+      <%= link_to '<i class="bi bi-calendar2-week"></i> Add a new season'.html_safe, new_assessment_season_path, class: "btn btn-success btn-lg" %>
+    </div>
   </div>
 </div>
 <div class="row mt-5">
@@ -22,10 +27,9 @@
         <tr>
           <th scope="row"><%= a.id %></th>
           <td><%= a.name %></td>
-          <td><%= a.start_date.strftime("%A, %e %B %Y at %I:%M:%S %p") %></td>
-          <td><%= a.end_date.minus_with_duration(1.second).strftime("%A, %e %B %Y at %I:%M:%S %p") %></td>
+          <td><%= a.start_date.strftime("%A, %e %B %Y") %></td>
+          <td><%= a.end_date.strftime("%A, %e %B %Y") %></td>
           <td>
-          <%= link_to "View", assessment_season_path(a), class: "btn btn-outline-primary btn-sm" %>
           <%= link_to "Edit", edit_assessment_season_path(a), class: "btn btn-outline-warning btn-sm" %>
           <%= link_to "Delete", assessment_season_path(a), method: :delete, class: "btn btn-outline-danger btn-sm" %>
           </td>

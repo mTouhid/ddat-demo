@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'signin', to: 'sessions#new'
   post 'signin', to: 'sessions#create'
   resources :assessments
-  resources :assessment_seasons
+  resources :assessment_seasons, except: [:show]
   delete 'sessions', to: 'sessions#destroy'
   root 'home#index'
 end

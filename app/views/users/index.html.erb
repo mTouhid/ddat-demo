@@ -15,7 +15,7 @@
           <th scope="col">Lastname</th>
           <th scope="col" class="col-4">Email</th>
           <th scope="col">Admin?</th>
-          <th scope="col" class="col-2">Actions</th>
+          <th scope="col" class="col-3">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -27,7 +27,7 @@
           <td><%= u.email %></td>
           <td><%= u.is_admin? %></td>
           <td>
-          <%= link_to "View", user_path(u), class: "btn btn-outline-primary btn-sm" %>
+          <%= link_to "View profile", user_path(u), class: "btn btn-outline-primary btn-sm" %>
           <%= link_to "Edit", edit_user_path(u), class: "btn btn-outline-warning btn-sm" %>
           <%= link_to "Delete", user_path(u), method: :delete, class: "btn btn-outline-danger btn-sm" %>
           </td>
