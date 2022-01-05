@@ -1,0 +1,262 @@
+<div class="row justify-content-md-center">
+  <div class="col-9">
+    <h1 class="display-1"><strong><%= @assessment.user.display_name %></strong></h1>
+    <span class="h2"><%= @assessment.role.name %></span>, <span class="h5">DDat Assessment - <mark><strong><%= @assessment.assessment_season.name %></strong></mark></span>
+    <div class="input-group flex-nowrap mt-5 pe-5">
+      <span class="input-group-text" id="addon-wrapping">Assessor</span>
+      <input type="text" class="form-control form-control-lg me-5" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" value=<%= @assessment.assessor_email %> disabled readonly>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="d-grid gap-2 col-12 mx-auto mt-5 border border-2 border-dark rounded-3 p-4">
+      <%= link_to "Edit justifications", edit_assessment_path(@assessment), class: "btn btn-outline-warning btn-lg" %>
+      <%= link_to "Withdraw submission", assessment_path(@assessment), method: :delete, class: "btn btn-outline-danger btn-lg" %>
+    </div>
+  </div>
+</div>
+<div class="row">
+<div class="col-12">
+  <%= form_with(model: @assessment, class: "row g-3 m-4", local: true) do |f| %>
+  <% if @assessment.skill1_name %>
+    <div class="border border-dark border-2 rounded-3 p-4">
+      <div class="mb-3 row">
+        <%= f.label :"skill1_name", "Skill", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_field :"skill1_name", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill1_definition", "Skill definition", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_area :"skill1_definition", class: "form-control-plaintext", readonly: true, rows: 4, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill1_skill_level_name", "Skill level", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_field :"skill1_skill_level_name", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill1_skill_level_definition", "Skill level definition", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_area :"skill1_skill_level_definition", class: "form-control-plaintext", readonly: true, rows: 4, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill1_skill_level_status", "Skill level status", class: "col-2 col-form-label" %>
+        <div class="col-6">
+          <%= f.text_field :"skill1_skill_level_status", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill1_self_assessment_justification", "Justification", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= @assessment.skill1_self_assessment_justification %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if @assessment.skill2_name %>
+    <div class="border border-dark border-2 rounded-3 p-4">
+      <div class="mb-3 row">
+        <%= f.label :"skill2_name", "Skill", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_field :"skill2_name", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill2_definition", "Skill definition", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_area :"skill2_definition", class: "form-control-plaintext", readonly: true, rows: 4, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill2_skill_level_name", "Skill level", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_field :"skill2_skill_level_name", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill2_skill_level_definition", "Skill level definition", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_area :"skill2_skill_level_definition", class: "form-control-plaintext", readonly: true, rows: 4, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill2_skill_level_status", "Skill level status", class: "col-2 col-form-label" %>
+        <div class="col-6">
+          <%= f.text_field :"skill2_skill_level_status", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill2_self_assessment_justification", "Justification", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= @assessment.skill2_self_assessment_justification %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if @assessment.skill3_name %>
+    <div class="border border-dark border-2 rounded-3 p-4">
+      <div class="mb-3 row">
+        <%= f.label :"skill3_name", "Skill", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_field :"skill3_name", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill3_definition", "Skill definition", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_area :"skill3_definition", class: "form-control-plaintext", readonly: true, rows: 4, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill3_skill_level_name", "Skill level", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_field :"skill3_skill_level_name", class: "form-control-plaintext", readonly: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill3_skill_level_definition", "Skill level definition", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_area :"skill3_skill_level_definition", class: "form-control-plaintext", readonly: true, rows: 4, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill3_skill_level_status", "Skill level status", class: "col-2 col-form-label" %>
+        <div class="col-6">
+          <%= f.text_field :"skill3_skill_level_status", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill3_self_assessment_justification", "Justification", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= @assessment.skill3_self_assessment_justification %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if @assessment.skill4_name %>
+    <div class="border border-dark border-2 rounded-3 p-4">
+      <div class="mb-3 row">
+        <%= f.label :"skill4_name", "Skill", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_field :"skill4_name", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill4_definition", "Skill definition", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_area :"skill4_definition", class: "form-control-plaintext", readonly: true, rows: 4, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill4_skill_level_name", "Skill level", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_field :"skill4_skill_level_name", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill4_skill_level_definition", "Skill level definition", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_area :"skill4_skill_level_definition", class: "form-control-plaintext", readonly: true, rows: 4, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill4_skill_level_status", "Skill level status", class: "col-2 col-form-label" %>
+        <div class="col-6">
+          <%= f.text_field :"skill4_skill_level_status", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill4_self_assessment_justification", "Justification", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= @assessment.skill4_self_assessment_justification %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if @assessment.skill5_name %>
+    <div class="border border-dark border-2 rounded-3 p-4">
+      <div class="mb-3 row">
+        <%= f.label :"skill5_name", "Skill", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_field :"skill5_name", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill5_definition", "Skill definition", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_area :"skill5_definition", class: "form-control-plaintext", readonly: true, rows: 4, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill5_skill_level_name", "Skill level", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_field :"skill5_skill_level_name", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill5_skill_level_definition", "Skill level definition", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_area :"skill5_skill_level_definition", class: "form-control-plaintext", readonly: true, rows: 4, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill5_skill_level_status", "Skill level status", class: "col-2 col-form-label" %>
+        <div class="col-6">
+          <%= f.text_field :"skill5_skill_level_status", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill5_self_assessment_justification", "Justification", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= @assessment.skill5_self_assessment_justification %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if @assessment.skill6_name %>
+    <div class="border border-dark border-2 rounded-3 p-4">
+      <div class="mb-3 row">
+        <%= f.label :"skill6_name", "Skill", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_field :"skill6_name", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill6_definition", "Skill definition", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_area :"skill6_definition", class: "form-control-plaintext", readonly: true, rows: 4, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill6_skill_level_name", "Skill level", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_field :"skill6_skill_level_name", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill6_skill_level_definition", "Skill level definition", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_area :"skill6_skill_level_definition", class: "form-control-plaintext", readonly: true, rows: 4, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill6_skill_level_status", "Skill level status", class: "col-2 col-form-label" %>
+        <div class="col-6">
+          <%= f.text_field :"skill6_skill_level_status", class: "form-control-plaintext", readonly: true, disabled: true %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :"skill6_self_assessment_justification", "Justification", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= @assessment.skill6_self_assessment_justification %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+</div>
+</div>

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new]
   get 'signin', to: 'sessions#new'
   post 'signin', to: 'sessions#create'
-  resources :assessments, only: [:new]
+  resources :assessments, only: [:show, :new, :create, :edit, :update]
   delete 'sessions', to: 'sessions#destroy'
   root 'home#index'
 end
