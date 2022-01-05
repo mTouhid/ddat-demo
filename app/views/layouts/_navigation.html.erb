@@ -7,12 +7,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to "Home", root_path, nav_link_class(root_path) %>
+          <%= link_to '<i class="bi bi-house"></i> Home'.html_safe, root_path, nav_link_class(root_path) %>
         </li>
         <% if logged_in? && current_user.is_admin? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Administration
+              <i class="bi bi-gear"></i> Administration
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><%= link_to "Manage users", users_path, class: "dropdown-item" %></li>
@@ -25,7 +25,7 @@
         <% if logged_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <%= current_user.display_name %>
+              <i class="bi bi-person-badge"></i> <%= current_user.display_name %>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><%= link_to "My profile", user_path(current_user), class: "dropdown-item" %></li>
