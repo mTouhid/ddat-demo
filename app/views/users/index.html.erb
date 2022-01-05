@@ -1,5 +1,12 @@
-<div class="row">
+<div class="row justify-content-md-center">
   <div class="col-12">
+    <h1 class="display-1">User administration</h1>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-12">
+  <% if @users.any? %>
+    <h5><%= pluralize(@users.count, "user") %> found.</h5>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -28,5 +35,8 @@
         <% end %>
       </tbody>
     </table>
+    <% else %>
+      <h5>There are no users found.</h5>
+    <% end %>
   </div>
 </div>
